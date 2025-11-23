@@ -1,0 +1,54 @@
+.samurai-container {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  width: 650px;
+  height: 750px;
+  max-width: 50vw;
+  max-height: 85vh;
+  z-index: 5;
+  pointer-events: auto;
+  opacity: 0;
+  animation: fadeInRight 1.8s ease-out 1.2s both;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+}
+
+@media (min-width: 1400px) {
+  .samurai-container {
+    right: 3%;
+    width: 750px;
+    height: 850px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .samurai-container {
+    width: 850px;
+    height: 950px;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.samurai-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent;
+}
+
+@media (max-width: 968px) {
+  .samurai-container {
+    display: none;
+  }
+}
+

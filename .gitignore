@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+.next/
+*.log
+
+# Do NOT track huge 3D model files
+*.glb

@@ -1,0 +1,120 @@
+.about {
+  background: rgba(35, 38, 47, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(245, 247, 250, 0.9);
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.tech-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.tech-list li {
+  position: relative;
+  padding-left: 25px;
+  color: var(--mist-white);
+}
+
+.tech-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--luxe-gold);
+}
+
+.about-image {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--carbon-grey);
+  border: 2px solid var(--luxe-gold);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--luxe-gold);
+  font-size: 18px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(244, 201, 93, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.image-wrapper:hover .image-placeholder {
+  border-color: var(--soft-metallic-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(244, 201, 93, 0.3);
+}
+
+@media (max-width: 968px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-image {
+    order: -1;
+  }
+}
